@@ -1,0 +1,73 @@
+@import url('https://fonts.googleapis.com/css?family=Montserrat');
+
+:root {
+  --btn-color: #2CB859;
+}
+
+#root {
+  height: 100%;
+  max-width: 100%;
+}
+
+.App {
+  height: 100%;
+  background-image: url('./assets/office-crew.jpg');
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+
+.QuizBoard {
+  border: 2px solid #000;
+  position: absolute;
+  top: 15%;
+  left: 25%;
+  height: 75%;
+  width: 50%;
+  background-color: #fff;
+}
+
+.Start {
+  padding: 10%;
+  margin: 0 15%;
+}
+
+.Start h2 {
+  font-family: Montserrat, Arial, Helvetica, sans-serif;
+}
+
+.Start button {
+  cursor: pointer;
+  position: absolute;
+  left: 40%;
+  margin-top: 5%;
+  padding: 2em;
+  border: none;
+  background-color: var(--btn-color);
+  font-family: Montserrat, Arial, Helvetica, sans-serif;
+  font-weight: bold;
+  font-size: 1em;
+}
+
+/* questions */
+
+.Cycler {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+}
+
+.Cycler button {
+  cursor: pointer;
+  border: none;
+  border-radius: 5px;
+  background-color: var(--btn-color);
+  padding: 2em;
+  font-family: Montserrat, Arial, Helvetica, sans-serif;
+  font-weight: bold;
+  font-size: 1em;
+}
+
+.btn-cycle-2 {
+  float: right;
+}
