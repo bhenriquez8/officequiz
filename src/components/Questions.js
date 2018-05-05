@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { Link } from 'react-router-dom';
 
 class Questions extends Component {
   constructor() {
@@ -35,7 +36,9 @@ class Cycler extends Component {
   render() {
     return (
       <div className="Cycler">
-        <button className="btn-cycle">Back</button>
+        <button className="btn-cycle">
+          <Link to='/'>Back</Link>
+        </button>
         <button className="btn-cycle-2">Next</button>
       </div>
     );
