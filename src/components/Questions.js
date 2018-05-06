@@ -1,34 +1,73 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 
+const quizPages = {
+    1: {
+      questions: ["Question 1", "Question 2", "Question 3", "Question 4"],
+      answers: [["Answer 1", "Answer 2", "Answer 3", "Answer 4"],
+        ["Answer 5", "Answer 6", "Answer 7", "Answer 8"],
+        ["Answer 9", "Answer 10", "Answer 11", "Answer 12"],
+        ["Answer 13", "Answer 14", "Answer 15", "Answer 16"]
+      ]
+    },
+    2: {
+      questions: ["Question 5", "Question 6", "Question 7", "Question 8"],
+      answers: [["Answer 1", "Answer 2", "Answer 3", "Answer 4"],
+        ["Answer 5", "Answer 6", "Answer 7", "Answer 8"],
+        ["Answer 9", "Answer 10", "Answer 11", "Answer 12"],
+        ["Answer 13", "Answer 14", "Answer 15", "Answer 16"]
+      ]
+    },
+    3: {
+      questions: ["Question 9", "Question 10", "Question 11", "Question 12"],
+      answers: [["Answer 1", "Answer 2", "Answer 3", "Answer 4"],
+        ["Answer 5", "Answer 6", "Answer 7", "Answer 8"],
+        ["Answer 9", "Answer 10", "Answer 11", "Answer 12"],
+        ["Answer 13", "Answer 14", "Answer 15", "Answer 16"]
+      ]
+    },
+    4: {
+      questions: ["Question 13", "Question 14", "Question 15", "Question 16"],
+      answers: [["Answer 1", "Answer 2", "Answer 3", "Answer 4"],
+        ["Answer 5", "Answer 6", "Answer 7", "Answer 8"],
+        ["Answer 9", "Answer 10", "Answer 11", "Answer 12"],
+        ["Answer 13", "Answer 14", "Answer 15", "Answer 16"]
+      ]
+    }
+};
+
 class Questions extends Component {
-  constructor() {
-    super();
-    this.state = {
-      answers: []
-    };
-    this.onSubmit.bind(this);
-  }
-
-  onSubmit(e) {
-    e.preventDefault();
-  }
-
   render() {
+    const pageNum = parseInt(this.props.match.params.id, 10);
+    const quizQandA = quizPages[pageNum];
+
+    const page = (pageNum === 0) ? (
+      <div>Sorry, technical difficulties</div>
+    ) : (
+      <form>
+        {
+          quizQandA['answers'].map((p, index) => {
+            return (
+              <div>
+                <label>{quizQandA['questions'][index]}</label>
+              {
+                p.map(val => {
+                  return <li key={val}>{val}</li>
+                })
+              }
+              </div>
+            )
+          })
+        }
+        <Cycler num={pageNum + 1}/>
+      </form>
+    );
+
     return (
       <div className="Questions">
-        <form onSubmit={this.onSubmit}>
-          <label>Question One</label><br />
-          <input type='radio' id='question1' />
-          <label>Answer One</label><br />
-          <input type='radio' id='question2' />
-          <label>Answer Two</label><br />
-          <input type='radio' id='question3' />
-          <label>Answer Three</label>
-        </form>
-        <Cycler />
+        {page}
       </div>
-    );
+    )
   }
 }
 
@@ -37,9 +76,20 @@ class Cycler extends Component {
     return (
       <div className="Cycler">
         <button className="btn-cycle">
-          <Link to='/'>Back</Link>
+          {(this.props.num === 2) ? (
+            <Link to='/'>Home</Link> ) : (
+              <Link to={`/questions/${this.props.num - 2}`}>Back</Link>
+            )
+          }
         </button>
-        <button className="btn-cycle-2">Next</button>
+        <button className="btn-cycle-2">
+          {!(this.props.num === 5) ? (
+            <Link to={`/questions/${this.props.num}`}>Next</Link>
+            ) : (
+              <Link to={'/results'}>Finish</Link>
+            )
+          }
+        </button>
       </div>
     );
   }

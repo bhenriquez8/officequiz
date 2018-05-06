@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { Route, Switch } from 'react-router-dom';
 import Start from './Start';
 import Questions from './Questions';
+import Results from './Results';
 
 class QuizBoard extends Component {
   render() {
@@ -19,7 +20,8 @@ class Main extends Component {
       <main>
         <Switch>
           <Route exact path='/' component={Start} />
-          <Route path='/questions' component={Questions} />
+          <Route path='/questions/:id' component={Questions} />
+          <Route path='/results' component={Results} />
         </Switch>
       </main>
     );

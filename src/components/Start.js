@@ -9,7 +9,7 @@ class Start extends Component {
         <img alt="office-logo" src={officeLogo} />
         <h2>un-official personality quiz!</h2>
         <button className="btn">
-          <Link to={'/questions'}>Take Quiz</Link>
+          <Link to={"/questions/1"}>Take Quiz</Link>
         </button>
       </div>
     );
