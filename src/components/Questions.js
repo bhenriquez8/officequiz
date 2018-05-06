@@ -12,7 +12,7 @@ const quizPages = {
     },
     2: {
       questions: ["Question 5", "Question 6", "Question 7", "Question 8"],
-      answers: [["Answer 1", "Answer 2", "Answer 3", "Answer 4"],
+      answers: [["Answer 17", "Answer 18", "Answer 19", "Answer 20"],
         ["Answer 5", "Answer 6", "Answer 7", "Answer 8"],
         ["Answer 9", "Answer 10", "Answer 11", "Answer 12"],
         ["Answer 13", "Answer 14", "Answer 15", "Answer 16"]
@@ -49,10 +49,11 @@ class Questions extends Component {
           quizQandA['answers'].map((p, index) => {
             return (
               <div>
-                <label>{quizQandA['questions'][index]}</label>
+                <label>{quizQandA['questions'][index]}</label><br />
               {
                 p.map(val => {
-                  return <li key={val}>{val}</li>
+                  return <label><input key={val} type="radio" value={val} />
+                    {val}<br /></label>
                 })
               }
               </div>
