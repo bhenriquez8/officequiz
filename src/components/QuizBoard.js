@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { Route, Switch } from 'react-router-dom';
+import Paper from 'material-ui/Paper';
 import Start from './Start';
 import Questions from './Questions';
 import Results from './Results';
@@ -7,9 +8,9 @@ import Results from './Results';
 class QuizBoard extends Component {
   render() {
     return (
-      <div className="QuizBoard">
+      <Paper className="QuizBoard">
         <Main />
-      </div>
+      </Paper>
     );
   }
 }
