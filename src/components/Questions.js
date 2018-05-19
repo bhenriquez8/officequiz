@@ -81,6 +81,7 @@ class Questions extends Component {
                   })
                 }
                 </RadioGroup>
+                <Cycler num={pageNum + 1}/>
             </div>
           )
         })

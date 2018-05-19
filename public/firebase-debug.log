@@ -1,0 +1,18 @@
+[debug] [2018-05-19T21:52:19.386Z] ----------------------------------------------------------------------
+[debug] [2018-05-19T21:52:19.388Z] Command:       /home/linuxbrew/.linuxbrew/Cellar/node/9.5.0/bin/node /home/linuxbrew/.linuxbrew/bin/firebase deploy
+[debug] [2018-05-19T21:52:19.388Z] CLI Version:   3.18.4
+[debug] [2018-05-19T21:52:19.388Z] Platform:      linux
+[debug] [2018-05-19T21:52:19.388Z] Node Version:  v9.5.0
+[debug] [2018-05-19T21:52:19.388Z] Time:          Sat May 19 2018 14:52:19 GMT-0700 (PDT)
+[debug] [2018-05-19T21:52:19.389Z] ----------------------------------------------------------------------
+[debug] 
+[debug] [2018-05-19T21:52:19.397Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2018-05-19T21:52:19.397Z] > authorizing via signed-in user
+[debug] [2018-05-19T21:52:19.399Z] >>> HTTP REQUEST GET https://admin.firebase.com/v1/projects/officequiz-ec917  
+  
+ Sat May 19 2018 14:52:19 GMT-0700 (PDT)
+[debug] [2018-05-19T21:52:21.950Z] <<< HTTP RESPONSE 200
+[debug] [2018-05-19T21:52:21.952Z] >>> HTTP REQUEST GET https://admin.firebase.com/v1/database/officequiz-ec917/tokens  
+  
+ Sat May 19 2018 14:52:21 GMT-0700 (PDT)
+[debug] [2018-05-19T21:52:23.782Z] <<< HTTP RESPONSE 200

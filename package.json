@@ -2,7 +2,6 @@
   "name": "personalityquiz",
   "version": "0.1.0",
   "private": true,
-  "homepage": "http://bhenriquez8.github.io/officequiz",
   "dependencies": {
     "@material-ui/icons": "^1.0.0-beta.43",
     "material-ui": "^1.0.0-beta.47",
