@@ -31,6 +31,11 @@
   margin: 0 15%;
 }
 
+.Start img {
+  width: 90%;
+  height: auto;
+}
+
 .Start h2 {
   font-family: Montserrat, Arial, Helvetica, sans-serif;
 }
@@ -63,6 +68,14 @@
     top: 10.5%;
     height: 80%;
   }
+
+  .Start img {
+    height: 70px;
+  }
+
+  .Start h2 {
+    font-size: 20px;
+  }
 }
 
 @media (max-width: 500px) {
@@ -71,5 +84,13 @@
     left: 0;
     top: 10.5%;
     height: 80%;
+  }
+
+  .Start img {
+    height: 50px;
+  }
+
+  .Start h2 {
+    font-size: 20px;
   }
 }

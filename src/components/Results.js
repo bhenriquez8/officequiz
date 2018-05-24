@@ -8,7 +8,7 @@ class Results extends Component {
   render() {
     return (
       <div className="Results">
-        <h1>You Finished!</h1>
+        <h1>{this.props.location.state.fromQuestions}</h1>
       </div>
     );
   }

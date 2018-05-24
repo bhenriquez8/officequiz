@@ -27,37 +27,60 @@ const quizPages = {
     }
 };
 
+const scoreKeeper = {
+  "Dwight": 0,
+  "Pam": 0,
+  "Jim": 0,
+  "Michael": 0
+};
+
 class Questions extends Component {
   constructor() {
     super();
     this.state = {
       value: '',
-      employees: {
-        "Dwight": 0,
-        "Pam": 0,
-        "Jim": 0,
-        "Michael": 0
-      }
+      employees: ''
     }
     this.handleChange = this.handleChange.bind(this);
+    this.handleClick = this.handleClick.bind(this);
+    this.handleResults = this.handleResults.bind(this);
   }
 
   handleChange = event => {
-    const ans = quizPages[this.props.match.params.id]['answers'];
-    const answer = ans.indexOf(event.target.value);
-
-    let officeCrew = {...this.state.employees};
-    officeCrew[answer] = officeCrew + 1;
-    this.setState(prevState => ({
-      employees: {
-        ...prevState.employees,
-        Dwight: prevState.employees['Dwight']++
-      }
-    }))
-
     this.setState({
       value: event.target.value
     });
+  }
+
+  handleClick = event => {
+    this.updateScore();
+  }
+
+  handleResults = event => {
+    this.updateScore();
+
+    let keys = Object.keys(scoreKeeper);
+    let finalResults = keys[0];
+
+    for (let i = 0; i < 4; ++i) {
+      if (scoreKeeper[keys[i]] > scoreKeeper[finalResults]) {
+        finalResults = keys[i];
+      }
+    }
+
+    this.setState({
+      employees: finalResults
+    })
+  }
+
+  updateScore() {
+    const currentPage = quizPages[this.props.match.params.id];
+    const radioOptions = currentPage['answers'];
+    const index = radioOptions.indexOf(this.state.value);
+    const officeCharacter = currentPage['employee'][index];
+
+    ++scoreKeeper[officeCharacter];
+    console.log(scoreKeeper[officeCharacter]);
   }
 
   render() {
@@ -89,13 +112,15 @@ class Questions extends Component {
             variant="raised"
             color="primary"
             component={Link}
-            to={`/questions/${pageNumber + 1}`}>
+            to={`/questions/${pageNumber + 1}`}
+            onClick={this.handleClick}>
             Next
           </Button>) : (
           <Button
             className="btn"
             variant="raised"
             color="primary"
+            onClick = {this.handleResults}
             component={Link}
             to={{ pathname: '/results', state:{ fromQuestions: this.state.employees}}}>
             Finish
