@@ -34,6 +34,8 @@ const scoreKeeper = {
   "Michael": 0
 };
 
+let buttonDisable = true;
+
 class Questions extends Component {
   constructor() {
     super();
@@ -50,10 +52,13 @@ class Questions extends Component {
     this.setState({
       value: event.target.value
     });
+
+    buttonDisable = false;
   }
 
   handleClick = event => {
     this.updateScore();
+    buttonDisable = true;
   }
 
   handleResults = event => {
@@ -81,6 +86,10 @@ class Questions extends Component {
 
     ++scoreKeeper[officeCharacter];
     console.log(scoreKeeper[officeCharacter]);
+
+    this.setState({
+      employees: officeCharacter
+    });
   }
 
   render() {
@@ -111,6 +120,7 @@ class Questions extends Component {
             className="btn"
             variant="raised"
             color="primary"
+            disabled={buttonDisable}
             component={Link}
             to={`/questions/${pageNumber + 1}`}
             onClick={this.handleClick}>

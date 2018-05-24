@@ -61,6 +61,12 @@
   justify-content: space-evenly;
 }
 
+.Results {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
 @media (max-width: 800px) {
   .QuizBoard {
     width: 75%;

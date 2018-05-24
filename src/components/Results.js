@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import Typography from '@material-ui/core/Typography';
 
 class Results extends Component {
   componentWillMount() {
@@ -8,7 +9,12 @@ class Results extends Component {
   render() {
     return (
       <div className="Results">
-        <h1>{this.props.location.state.fromQuestions}</h1>
+        <Typography variant="display2" gutterBottom>
+          Congratulations! You Are:
+        </Typography>
+        <Typography variant="display1" gutterBottom>
+          {this.props.location.state.fromQuestions}
+        </Typography>
       </div>
     );
   }
